@@ -14,7 +14,7 @@ let users = ["bart","lisa","homero","marge"];
 
 app.use(methodOverride());
 app.use(cors());
-app.use(express.urlencoded({extended}))//agregado despues para trabajar con el form de html
+app.use(express.urlencoded({extended:true}))//agregado despues para trabajar con el form de html
 app.use(express.json())//agregado despues para trabajar con el form de html
 
 
