@@ -32,7 +32,10 @@ app.get("/users", (req, res) => {
 
 //Create modificado para trabajar con el formulario html
 app.post("/user/create", (req, res) => { //Elimino el /:nombre porque lo envia desde el form
+    users.push(req.body.correo);
+    users.push(req.body.alias);
     users.push(req.body.nombre);
+    users.push(req.body.clave);
     res.send("usuario creado")
 });
 
