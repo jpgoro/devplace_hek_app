@@ -12,8 +12,10 @@ let port = process.env.PORT || 3000;
 
 let users = ["bart","lisa","homero","marge"];
 
-app.use(methodOverride());
-app.use(cors());
+//Agrego los middlewares
+app.use(methodOverride());//middlewares creados para el form
+app.use(cors());//middlewares creados para el form
+//
 app.use(express.urlencoded({extended:true}))//agregado despues para trabajar con el form de html
 app.use(express.json())//agregado despues para trabajar con el form de html
 
