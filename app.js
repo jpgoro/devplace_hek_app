@@ -14,15 +14,23 @@ let users = ["bart","lisa","homero","marge"];
 
 app.use(methodOverride());
 app.use(cors());
+app.use(express.urlencoded({extended}))//agregado despues para trabajar con el form de html
+app.use(express.json())//agregado despues para trabajar con el form de html
 
 
 app.get("/users", (req, res) => {
     res.send(users); 
 });
 
-//Create
-app.post("/user/create/:nombre", (req, res) => {
+//Create antes de trabajar con el formulario de html
+/* app.post("/user/create/:nombre", (req, res) => {
     users.push(req.params.nombre);
+    res.send("usuario creado")
+}); */
+
+//Create modificado para trabajar con el formulario html
+app.post("/user/create", (req, res) => { //Elimino el /:nombre porque lo envia desde el form
+    users.push(req.body.nombre);
     res.send("usuario creado")
 });
 
